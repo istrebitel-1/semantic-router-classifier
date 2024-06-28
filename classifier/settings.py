@@ -3,7 +3,6 @@ from functools import lru_cache
 
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
-
 logger = logging.getLogger(__name__)
 
 
@@ -18,7 +17,6 @@ class Settings(BaseSettings):
     ENCODER_BATCH_SIZE: int = 1000
     NUMBER_OF_UTTERANCES_PER_CLASS: int = 300
     CLASSIFIER_SCORE_THRESHOLD: float = 0.1
-    CAR_CLASSIFIER_SCORE_THRESHOLD: float = 0.3
     CLASSIFIER_EMBEDDINGS_DIMENSIONS: int = 3072
 
 
