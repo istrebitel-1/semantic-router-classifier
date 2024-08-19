@@ -1,10 +1,10 @@
 import logging
 
 from semantic_router import Route
+from semantic_router.encoders import OpenAIEncoder
 from semantic_router.layer import RouteLayer
 
 from classifier.constants import QuestionClass, map_label_to_question_class
-from classifier.semantic_router.openai_batch_encoder import OpenAIBatchEncoder
 from classifier.semantic_router.topics import Topic, get_topics_data
 from classifier.settings import get_settings
 
@@ -64,7 +64,7 @@ class Classifier:
             RouteLayer: The initialized RouteLayer classifier.
         """
         routes = self._create_routes()
-        encoder = OpenAIBatchEncoder(
+        encoder = OpenAIEncoder(
             openai_api_key=self._settings.OPEN_AI_API_KEY,
             name=self._settings.OPEN_AI_MODEL_EMBEDDINGS,
             score_threshold=self._settings.CLASSIFIER_SCORE_THRESHOLD,
